@@ -7,8 +7,10 @@ set incsearch
 source ~/linuxProgram/.linuxvimrc
 " 删除所有
 nnoremap da ggdG 
-" 保存
-inoremap <F2> <ESC>:w<CR>a
+" 保存, 首先要在.bashrc里设置stty -ixon把<C-s>原本暂停输入功能关了
+inoremap <C-s> <ESC>:w<CR>a
+nnoremap <C-s> :w<CR>
+vnoremap <C-s> <ESC>:w<CR>gv
 filetype off                  " 必须
  
 " 设置包括 vundle 和初始化相关的 runtimepath
