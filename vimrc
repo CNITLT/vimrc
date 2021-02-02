@@ -17,13 +17,13 @@ inoremap { {}<ESC>i
 inoremap [ []<ESC>i
 inoremap " ""<ESC>i
 
-" 循环和判断补全
-inoremap i( if(){<CR>}<ESC>k^f(a
-inoremap e( else(){<CR>}<ESC>k^f(a
-inoremap ei( else if(){<CR>}<ESC>k^f(a
-inoremap f( for(;;){<CR>}<ESC>k^f(a
-inoremap w( while(){<CR>}<ESC>k^f(a
-
+" 循环和判断补全,防止误触发就把括号反正来
+inoremap i)( if(){<CR>}<ESC>k^f(a
+inoremap e)( else(){<CR>}<ESC>k^f(a
+inoremap ei)( else if(){<CR>}<ESC>k^f(a
+inoremap f)( for(;;){<CR>}<ESC>k^f(a
+inoremap w)( while(){<CR>}<ESC>k^f(a
+inoremap si)( sizeof()<ESC>i
 filetype off                  " 必须
  
 " 设置包括 vundle 和初始化相关的 runtimepath
