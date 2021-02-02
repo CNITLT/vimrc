@@ -2,7 +2,7 @@ set nocompatible              " 去除VI一致性,必须
 set nu
 set history=2000
 set incsearch
-
+set ts=4
 " 读取linux学习时的配置文件
 source ~/linuxProgram/.linuxvimrc
 " 删除所有
@@ -11,6 +11,19 @@ nnoremap da ggdG
 inoremap <C-s> <ESC>:w<CR>a
 nnoremap <C-s> :w<CR>
 vnoremap <C-s> <ESC>:w<CR>gv
+" 括号和引号补全
+inoremap ( ()<ESC>i
+inoremap { {}<ESC>i
+inoremap [ []<ESC>i
+inoremap " ""<ESC>i
+
+" 循环和判断补全
+inoremap i( if(){<CR>}<ESC>k^f(a
+inoremap e( else(){<CR>}<ESC>k^f(a
+inoremap ei( else if(){<CR>}<ESC>k^f(a
+inoremap f( for(;;){<CR>}<ESC>k^f(a
+inoremap w( while(){<CR>}<ESC>k^f(a
+
 filetype off                  " 必须
  
 " 设置包括 vundle 和初始化相关的 runtimepath
