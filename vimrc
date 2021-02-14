@@ -3,6 +3,10 @@ set nu
 set history=2000
 set incsearch
 set ts=4
+
+" 汇编语法高亮和默认配色
+autocmd BufEnter *.asm,*.inc :setlocal filetype=nasm
+autocmd BufEnter *.asm,*.inc :colorscheme darkblue 
 " 读取linux学习时的配置文件
 source ~/linuxProgram/.linuxvimrc
 " 删除所有
@@ -23,7 +27,10 @@ inoremap e)( else(){<CR>}<ESC>k^f(a
 inoremap ei)( else if(){<CR>}<ESC>k^f(a
 inoremap f)( for(;;){<CR>}<ESC>k^f(a
 inoremap w)( while(){<CR>}<ESC>k^f(a
-inoremap si)( sizeof()<ESC>i
+inoremap s)( sizeof()<ESC>i
+inoremap #d #define
+inoremap #in #include
+inoremap #ifn #ifndef<CR>#define<CR>#endif<ESC>kkA 
 filetype off                  " 必须
  
 " 设置包括 vundle 和初始化相关的 runtimepath
