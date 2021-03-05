@@ -3,10 +3,13 @@ set nu
 set history=2000
 set incsearch
 set ts=4
-
+inoremap jk <ESC>
+" abbreviations
+source ~/.vimrc_iabbrev
 " 汇编语法高亮和默认配色
 autocmd BufEnter *.asm,*.inc :setlocal filetype=nasm
 autocmd BufEnter *.asm,*.inc :colorscheme darkblue 
+autocmd BufEnter *.asm,*.inc :set autoindent 
 " 读取linux学习时的配置文件
 source ~/linuxProgram/.linuxvimrc
 " 删除所有
@@ -36,6 +39,9 @@ filetype off                  " 必须
 " 设置包括 vundle 和初始化相关的 runtimepath
  set rtp+=~/.vim/bundle/Vundle.vim
  call vundle#begin()
+ " markdown插件
+ Plugin 'plasticboy/vim-markdown'
+ Plugin 'iamcco/markdown-preview.vim'
  "增量搜索插件
  Plugin 'haya14busa/incsearch.vim'
 " 另一种选择, 指定一个 vundle 安装插件的路径
